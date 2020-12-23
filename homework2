@@ -1,0 +1,12 @@
+#homework2
+first_name = input('enter your firstname :')
+last_name = input('enter your lastname :')
+age = int(input('enter your age :'))
+dob = int(input('enter your dob :'))
+information1 =[first_name,last_name,age,dob]
+print('Firstname : {}\nLastname : {}\nAge : {}\nDOB : {}'.format(information1[0],information1[1],information1[2],information1[3]))
+for i in information1:
+ if age < 18:
+     print("You can't go out because it's too dangerous")
+else:
+    print(" You can go out the street")
