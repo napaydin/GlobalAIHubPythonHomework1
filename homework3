@@ -1,0 +1,20 @@
+gamer=input("Enter your name: ")
+
+print('Welcome '+gamer)
+
+from random import choice
+
+word = choice(["globalaihub"])
+out = ""
+
+for letter in word:
+    out = out + "_"
+
+print("Guess a letter :", out)
+
+guess = input()
+
+if guess in word:
+    print("You won it")
+else:
+    print("You lost it and game over")
