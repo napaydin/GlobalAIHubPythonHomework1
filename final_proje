@@ -1,0 +1,50 @@
+name="Nur Apaydin"
+
+student =  input("Please Enter Your Name and Surname: ")
+for i in range(1,4):
+  if i==3:
+    student = "Please try again later"
+    print(student)
+    break
+  if student!=name:
+    student =  input("Please Enter Your Name and Surname: ")
+  if student==name:
+    student = "Welcome " + student
+    print(student)
+    break
+
+classes= ["math", "art", "chemistry", "biology", "language_art"]
+          # taken? | midterm | final | project | passgrade | passgradeletter | pass/fail?
+details= [   None,     None,    None,    None,     None,       None ,          None]
+        #nameCourse | details
+grades={}
+
+i=0 #number of courses taken
+for j in range(0,5):
+  question="did you take " + classes[j] + " y/n?"
+  answer=input(question)
+  if answer=="y":
+    details[0]= answer
+    details[1]= input(name + " For the Course:<" + classes[j] +"> Please enter your <midterm> grade ")
+    details[2]= input(name + " For the Course:<" + classes[j] +"> Please enter your <final> grade ")
+    details[3]= input(name + " For the Course:<" + classes[j] +"> Please enter your <project> grade ")
+    details[4]= 0.3 * int(details[1]) + 0.5 * int(details[2]) + .2 * int(details[3])
+    if details[4]>=90:                   details[5]='AA'
+    if 70<=details[4] and details[4]<90: details[5]='BB'
+    if 50<=details[4] and details[4]<70: details[5]='CC'
+    if 30<=details[4] and details[4]<50: details[5]='DD'
+    if details[4]<30:                   details[5]='FF'
+    if details[5]=='FF':   details[6]= 'FAIL'
+    if details[5]!='FF':   details[6]= 'PASS'
+    grades.update({ 'name' + str(j): classes[j], 'details'+ str(j):[
+                                              details[0],details[1],details[2],details[3],details[4],details[5], details[6]
+                                              ] })
+    i=i+1
+
+print("number of courses taken: " + str(i))
+
+if i<3:
+    print("You failed in class")
+    quit()
+
+print(grades)
